@@ -19,7 +19,7 @@ tn.write(b"enable\n")
 
 tn.read_until(b"Password: ")
 tn.write(password.encode('ascii') + b"\n")
-write(b"conf t\n")
+tn.write(b"conf t\n")
 tn.write(b"int vlan 100\n")
 tn.write(b"name vlan100\n")
 tn.write(b"end\n")
