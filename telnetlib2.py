@@ -1,4 +1,3 @@
-#koneksi ke multiple switch (config ip loopback)
 import telnetlib
 import getpass
 
@@ -18,19 +17,13 @@ for device_list in host:
         tn.read_until(b"Password: ")
         tn.write(password.encode('ascii') + b"\n")
 
-    tn.write(b"enable\n")
-
-    tn.read_until(b"Password: ")
-    tn.write(password.encode('ascii') + b"\n")
-
     tn.write(b"conf t\n")
     tn.write(b"int lo 100\n")
     if device_list == '192.168.1.2':
-        ip = "ip add 1.1.1.1 255.255.255.255"
-        tn.write(ip.encode('ascii') + b"\n")
+        tn.write(b"ip add 1.1.1.1 255.255.255.255") 
     elif device_list == '192.168.1.3':
         ip = "ip add 2.2.2.2 255.255.255.255"
-        tn.write(ip.encode('ascii') + b"\n")
+        tn.write(ip.encode('ascii') + b"\n") #digunakan untuk menulis write jika ada string dan variable
     elif device_list == '192.168.1.4':
         ip = "ip add 3.3.3.3 255.255.255.255"
         tn.write(ip.encode('ascii') + b"\n")
