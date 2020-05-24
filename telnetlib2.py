@@ -20,10 +20,10 @@ for device_list in host:
     tn.write(b"conf t\n")
     tn.write(b"int lo 100\n")
     if device_list == '192.168.1.2':
-        tn.write(b"ip add 1.1.1.1 255.255.255.255") 
+        tn.write(b"ip add 1.1.1.1 255.255.255.255\n") 
     elif device_list == '192.168.1.3':
         ip = "ip add 2.2.2.2 255.255.255.255"
-        tn.write(ip.encode('ascii') + b"\n") #digunakan untuk menulis write jika ada string dan variable
+        tn.write(ip.encode('ascii') + b"\n")#digunakan untuk menulis write jika ada string dan variable
     elif device_list == '192.168.1.4':
         ip = "ip add 3.3.3.3 255.255.255.255"
         tn.write(ip.encode('ascii') + b"\n")
